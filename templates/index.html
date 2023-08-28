@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Simple Recorder.js demo with record, stop and pause - addpipe.com</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/test-main/static/style.css">
+    <style type="text/css">
+      #results {display:inline-block;margin-right:10px;} 
+      #full {display:inline-block;} 
+    </style>
+  </head>
+  <body>
+    <h1>Animal Classifier</h1>
+    <div id="controls">
+  	 <button id="recordButton">Start</button>
+  	 <button id="stopButton" disabled>Stop</button>
+    </div>
+    <div id="formats">Format: start recording to see sample rate</div>
+    <script>
+      function hide(obj) {
+        var fullResults = document.getElementById("fullRes");
+        if($(obj).is(":checked")) {
+          fullResults.style.display = 'block';
+        } else {
+          fullResults.style.display = 'none';
+        }
+      }
+    </script>
+    <div id = "res">
+      <!--<p><strong>Results:</strong></p> -->
+      <p id = "results">Results:</p>
+      <input type="checkbox" id="full" onchange="hide(this)">
+      <label for="full"> Show full results</label><br>
+    </div>
+    <div id = "fullRes" style = "display: none;">
+      <div id = "alligator">
+        <p id = "value0">Alligator:</p>
+      </div>
+    </div>
+    <!-- inserting these scripts at the end to be able to use all the elements in the DOM -->
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+    <script src="/test-main/edge_impulse/edge-impulse-standalone.js"></script>
+    <script src="/test-main/edge_impulse/run-impulse.js"></script>
+  	<script src="/test-main/static/js/recorder.js"></script>
+  	<script src="/test-main/static/js/app.js"></script>
+  </body>
+</html>
